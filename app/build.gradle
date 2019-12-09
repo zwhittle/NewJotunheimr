@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.awesome.zach.newjotunheimr"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    // Android Support Libraries
+    implementation "androidx.appcompat:appcompat:$appcompatVersion"
+    implementation "androidx.legacy:legacy-support-v4:$legacySupportVersion"
+    implementation "androidx.appcompat:appcompat:$supportLibraryVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "androidx.core:core:$coreVersion"
+    kapt "com.android.databinding:compiler:$gradle_version"
+
+    // Android Architecture Components
+    implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "android.arch.work:work-runtime-ktx:$workVersion"
+
+    // Koin Dependency Injection
+    implementation "org.koin:koin-android:$koinVersion"
+    implementation "org.koin:koin-android-viewmodel:$koinVersion"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+
+    // Room
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+
+    // Glide
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+
+    // Oneshot LiveData
+    implementation "com.github.hadilq.liveevent:liveevent:$liveEventVersion"
+
+    // Testing Dependencies
+    testImplementation "org.koin:koin-test:$koinVersion"
+    androidTestImplementation "org.koin:koin-test:$koinVersion"
+    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
+    testImplementation "junit:junit:$junitVersion"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$reflectVersion"
+    testImplementation "androidx.room:room-testing:$roomVersion"
+}
